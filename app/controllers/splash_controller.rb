@@ -1,5 +1,4 @@
-# frozen_string_literal: true
-
+# SplashController handles the display of the splash page.
 class SplashController < ApplicationController
   def index
     @app_name = 'Joy Budget App'

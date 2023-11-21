@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# SplashController handles the display of the splash page.
 require_relative 'boot'
 
 require 'rails/all'
@@ -9,6 +10,7 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 module BudgetApp
+  # The application class responsible for configuration.
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1

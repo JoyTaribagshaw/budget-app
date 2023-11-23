@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   root 'splash#index'
 
-  get 'signup', to: 'registrations#new'
+  get 'sign_up', to: 'registrations#new'
   get 'login', to: 'sessions#new'
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.

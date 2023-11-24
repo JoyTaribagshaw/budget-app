@@ -1,2 +1,12 @@
-<h1>Category#index</h1>
-<p>Find me in app/views/category/index.html.erb</p>
+<h1>category</h1>
+
+<% @category.each do |category| %>
+  <div>
+    <h3><%= category.name %></h3>
+    <p>Icon: <%= category.icon %></p>
+    <p>Total Amount: <%= category. expenditure.sum(:amount) %></p>
+    <%= link_to "View Expenditures", category_expenditures_path(category) %>
+  </div>
+<% end %>
+
+<%= link_to "Add a new category", new_category_path %>

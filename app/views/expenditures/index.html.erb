@@ -4,9 +4,10 @@
 
 <% @expenditures.each do |expenditure| %>
   <div>
+    <%= image_tag expenditure.icon, class: "img white" %>
     <p>Amount: <%= expenditure.amount %></p>
   </div>
 <% end %>
 
 <%= link_to "Add a new expenditure", new_category_expenditure_path(@category) %>
-<%= link_to "Back", categoryies_path %>
+<%= link_to "Back", categories_path %>

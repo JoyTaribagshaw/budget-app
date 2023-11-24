@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title class="title"><%= @app_name %></title>
+  <title class="title"> </title>
 </head>
 <body>
-  <h1 class="name">Welcome to <%= @app_name %></h1>
+  <div class="parent-div">
+    <h1 class="name"><%= @app_name %></h1>
   <p class="tag"><%= @tagline %></p>
   <div class="link-div">
-  <%= link_to @cta_signup, http://127.0.0.1:3000/users/sign_up, class: "link" %>
-  <%= link_to @cta_login, http://127.0.0.1:3000/users/sign_in, class: "link" %>
+    <%= link_to 'login' , new_user_session_path, class: "link" %>
+     <%= link_to 'signup', new_user_registration_path, class: "link" %>
+  </div>
   </div>
 </body>
 </html>

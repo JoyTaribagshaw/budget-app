@@ -25,8 +25,28 @@ body {
 .link-div {
   display: flex;
   justify-content: flex-end;
+  flex-direction: column;
+  margin-block: 200px 85px;
 }
 
 .link {
   margin: 1rem;
+  display: inline-block;
+  padding: 15px 80px;
+  background-color: blue;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  border-radius: 2px;
+  border: none;
+  cursor: pointer;
+}
+
+.parent-div {
+  display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 40rem;
 }

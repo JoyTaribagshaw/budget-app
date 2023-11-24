@@ -1,32 +1,29 @@
 class ExpendituresController < ApplicationController
-  before_action :authenticate_user!
-  before_action :set_category
-
   def index
+    @category = Category.find(params[:category_id])
     @expenditures = @category.expenditures.order(created_at: :desc)
   end
 
   def new
-    @expenditure = @category.expenditures.new
+    @category = Category.find(params[:category_id])
+    @expenditure = Expenditure.new
   end
 
   def create
-    @expenditure = @category.expenditures.new(expenditure_params)
+    @category = Category.find(params[:category_id])
+    @expenditure = current_user.expenditures.build(expenditures_params)
 
     if @expenditure.save
-      redirect_to category_expenditures_path(@category), notice: 'expenditure created successfully.'
+      CategoryExpenditure.create(category: @category, expenditure: @expenditure)
+      redirect_to category_expenditures_path(@category)
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 
   private
 
-  def set_category
-    @category = category.find(params[:category_id])
-  end
-
-  def expenditure_params
-    params.require(:expenditure).permit(:amount)
+  def expenditures_params
+    params.require(:expenditure).permit(:name, :amount, :icon)
   end
 end

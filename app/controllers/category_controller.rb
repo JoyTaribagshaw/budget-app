@@ -18,7 +18,7 @@ class CategoriesController < ApplicationController
     @category = current_user.categories.new(category_params)
 
     if @category.save
-      redirect_to categories_path, notice: "category created successfully."
+      redirect_to categories_path, notice: 'category created successfully.'
     else
       render :new
     end

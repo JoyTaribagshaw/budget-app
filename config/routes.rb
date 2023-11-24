@@ -1,13 +1,18 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  # devise_for :users
+  devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  devise_scope :user do
+    authenticated :user do
+      root :to => 'categories#index', as: :authenticated_root
+    end
+    unauthenticated :user do
+      root :to => 'splash#index'
+    end
+  end
 
-  root 'splash#index'
-
-  get 'sign_up', to: 'registrations#new'
-  get 'login', to: 'sessions#new'
+  resources :splash
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.

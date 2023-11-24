@@ -1,0 +1,12 @@
+<h1>Expenditures</h1>
+
+<p>Total Amount for <%= @category.name %>: <%= @category.expenditures.sum(:amount) %></p>
+
+<% @expenditures.each do |expenditure| %>
+  <div>
+    <p>Amount: <%= expenditure.amount %></p>
+  </div>
+<% end %>
+
+<%= link_to "Add a new expenditure", new_category_expenditure_path(@category) %>
+<%= link_to "Back", categoryies_path %>

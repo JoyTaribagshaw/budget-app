@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe expendituresController, type: :request do
+RSpec.describe ExpendituresController, type: :request do
   describe 'GET /index' do
     let(:user) do
-      User.create(name: 'John Doe', email: 'john.doe@example.com', password: 'password',
+      User.create(full_name: 'John Doe', email: 'john.doe@example.com', password: 'password',
                   password_confirmation: 'password')
     end
 

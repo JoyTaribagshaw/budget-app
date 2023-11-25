@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   Rails.application.routes.default_url_options[:host] = 'localhost:3000'
-  let(:user) { User.new(name: 'Joy', email: 'joytaribagshaw@gmail.com', password: 'password') }
+  let(:user) { User.new(full_name: 'Joy', email: 'joytaribagshaw@gmail.com', password: 'password') }
 
   before { user.save }
 
@@ -11,7 +11,7 @@ RSpec.describe User, type: :model do
       expect(user).to be_valid
     end
     it 'shows the exact users name' do
-      expect(user.name).to eq('Joy')
+      expect(user.full_name).to eq('Joy')
     end
     it 'shows the exact users email' do
       expect(user.email).to eq('joytaribagshaw@gmail.com')
@@ -22,7 +22,7 @@ RSpec.describe User, type: :model do
   end
   context 'invialidity:' do
     it 'is not valid when name is not present' do
-      user.name = nil
+      user.full_name = nil
       expect(user).not_to be_valid
     end
   end

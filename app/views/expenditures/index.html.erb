@@ -5,7 +5,7 @@
     <%= image_tag 'left-arrow.svg', class: "left-arrow background" %>
     <% end %>
   <p class="registration background">EXPENDITURES</p>
-  <%= link_to "SIGN OUT", destroy_user_session_path, data:{turbo_method: :delete}, class: "sign-out-btn background" %>
+  <%= button_to "SIGN OUT", destroy_user_session_path, method: :delete, class: "sign-out-btn background" %>
   </div>
   
   

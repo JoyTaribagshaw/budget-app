@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Expenditure, type: :model do
   Rails.application.routes.default_url_options[:host] = 'localhost:3000'
 
-  let(:user) { User.new(name: 'Joy', email: 'joytaribagshaw@gmail.com', password: 'password') }
+  let(:user) { User.new(full_name: 'Joy', email: 'joytaribagshaw@gmail.com', password: 'password') }
   let(:expenditure) { Expenditure.new(name: 'Shoe', amount: 3000.0, author: user) }
 
   before { user.save }

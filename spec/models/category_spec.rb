@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Category, type: :model do
   Rails.application.routes.default_url_options[:host] = 'localhost:3000'
-  let(:user) { User.new(name: 'Margaret', email: 'margaret@gmail.com', password: 'password') }
+  let(:user) { User.new(full_name: 'Margaret', email: 'margaret@gmail.com', password: 'password') }
   let(:category) { Category.new(name: 'Food', user:) }
   before { user.save }
   before { category.save }

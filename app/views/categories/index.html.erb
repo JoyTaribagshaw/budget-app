@@ -1,12 +1,36 @@
-<h1>category</h1>
-
-<% @categories.each do |category| %>
-  <div>
-    <h3><%= category.name %></h3>
-   <%= image_tag category.icon, class: "img white" %>
-    <p>Total Amount: <%= category.expenditures.sum(:amount) %></p>
-    <%= link_to "View Expenditures", category_expenditures_path(category) %>
+<div class="category-index">
+<div>
+  <div class="nav background">
+  <%= link_to root_path, class: "left-arrow-link background" do %>
+    <%= image_tag 'left-arrow.svg', class: "left-arrow background" %>
+    <% end %>
+  <p class="registration background">CATEGORIES</p>
+  <%= link_to "SIGN OUT", destroy_user_session_path, data:{turbo_method: :delete}, class: "sign-out-btn background" %>
   </div>
+ 
+  <% @categories.each do |category| %>
+  <div class="category-list-div">
+    <div class="category-list">
+    <% if category.icon.attached? %>
+    <%= image_tag category.icon, class: "img white" %>
+    <% else %>
+    <%= image_tag 'food.svg', class: "img white" %>
 <% end %>
-
-<%= link_to "Add a new category", new_category_path %>
+      <div class="text white">
+        <div class="food-description white">
+       
+          <p class="white"><%= link_to category.name, category_expenditures_path(category) %></p><br>
+          <p class="white"> $ <%= category.expenditures.sum(:amount) %></p>
+        </div>
+        <div class="date">
+        <hr class="hr">
+        <p class="white-date"><%= category.created_at.strftime("%d %B %Y") %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+  </div>
+  <div class="add-category">
+  <%= link_to "ADD CATEGORY", new_category_path, class: "add-category-a" %>
+</div>

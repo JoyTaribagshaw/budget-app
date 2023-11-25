@@ -10,8 +10,9 @@
   
   
   <div class="total">
-    <p>Total budget</p>
+    <p>total budget</p>
     <p> <%= @category.name %>: <%= @category.expenditures.sum(:amount) %></p>
+  </div>
   <% @expenditures.each do |expenditure| %>
   <div class="category-list-div">
     <div class="category-list">
@@ -23,7 +24,7 @@
       <div class="text white">
         <div class="food-description white">
           <p class="white"><%= expenditure.name%></p><br>
-          <p class="white">Le <%= format_amount(expenditure.amount) %></p>
+          <p class="white"> $ <%= expenditure.amount %></p>
         </div>
         <p class="white date"><%= expenditure.created_at.strftime("%d %B %Y") %></p>
       </div>
@@ -31,6 +32,152 @@
   </div>
   <% end %>
   </div>
-  <div class="add-expenditure">
+   <div class="add-expenditure">
   <%= link_to 'ADD EXPENDITURE', new_category_expenditure_path(@category), class: "add-expenditure-a" %>
 </div>
+
+<style>
+.sign-out-btn{
+color: white;
+padding:0.4%;
+border: 1px solid white;
+font-size: 13px;
+}
+  .date {
+    margin-top: 20px;
+  }
+  a{
+    text-decoration: none;
+  }
+  
+  .text {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+   
+  }
+  
+  .food-description {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .white {
+    background-color: white;
+  }
+  
+  .category-list-div {
+    display: flex;
+    flex-direction: column;
+    align-expenditures: center;
+  }
+  
+  .category-list {
+    width: 90%;
+    background: white;
+    padding: 2%;
+    display: flex;
+    align-expenditures: center;
+    gap: 10px;
+    margin-top: 10px;
+    height: fit-content;
+    font-size: 20px;
+  }
+  
+  .total {
+    width: 100%;
+    background: white;
+    padding: 2%;
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+  }
+  
+  .total p {
+    background: white;
+    color: #434b54;
+    font-size: 20px;
+    text-align: center;
+  }
+  
+  .category-index {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+  }
+  
+  .add-category {
+    width:100%;
+    padding: 35px;
+       background-color: #5fb523;
+       color: white;
+       border: 1px solid #F0F2F1;
+       font-size: 18px;
+       align-self: center;
+       text-align: center;
+  }
+  
+  .custom-file-upload {
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background: white;
+  }
+  
+  .file-upload {
+    display: none;
+  }
+  
+  .field-pic {
+    display: flex;
+    align-expenditures: center;
+    width: 100%;
+    background: white;
+    margin-top: 5%;
+    padding: 2%;
+  }
+  
+  .field {
+    width: 100%;
+    background: white;
+    padding: 2%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  #image-preview {
+    display: flex;
+    align-expenditures: center;
+    margin-top: 10px;
+    background: white;
+  }
+  
+  .img {
+    text-decoration: none;
+    background-color: #3778c2;
+    width: 20%;
+    height:80px
+  }
+  
+  .nav {
+    width: 100%;
+    height: 90px;
+    display: flex;
+    justify-content: space-between;
+    padding: 2%;
+    align-expenditures: center;
+    color: white;
+    font-size: 18px;
+  }
+  
+  .background {
+    background-color: #3778c2;
+  }
+  
+  .input {
+    background-color: white;
+    width: 100%;
+    height: 30px;
+}
+  </style>
